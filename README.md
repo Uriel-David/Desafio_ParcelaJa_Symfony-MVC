@@ -159,9 +159,11 @@ php bin/console cache:clear --env=test
 .
 ├── src/
 │   ├── Controller/       # Controladores (ex: ShapeController)
-│   ├── DataFixtures/     # Seeders (ex: ShapeFixtures)    
+│   ├── DataFixtures/     # Seeders (ex: ShapeFixtures)
+│   ├── DTO/              # DTOs (ex: CircleDTO and RectangleDTO)
 │   ├── Entity/           # Entidades (Rectangle, Circle)
-│   ├── Repository/       # Repositórios do Doctrine
+│   ├── Mapper/           # Mappers (ex: CircleMapper and RectangleMapper)
+│   ├── Repository/       # Repositórios do Doctrine (ex: CircleRepository and RectangleRepository)
 │   └── Service/          # Serviços (ex: ShapeService)
 │
 ├── templates/
