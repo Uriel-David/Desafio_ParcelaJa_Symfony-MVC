@@ -53,6 +53,7 @@ class RectangleRepository extends ServiceEntityRepository
     public function findAllRectangles(): array
     {
         return $this->createQueryBuilder('r')
+                    ->orderBy('r.id', 'ASC')
                     ->getQuery()
                     ->getResult();
     }

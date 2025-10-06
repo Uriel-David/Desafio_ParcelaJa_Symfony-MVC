@@ -53,6 +53,7 @@ class CircleRepository extends ServiceEntityRepository
     public function findAllCircles(): array
     {
         return $this->createQueryBuilder('c')
+                    ->orderBy('c.id', 'ASC')
                     ->getQuery()
                     ->getResult();
     }
