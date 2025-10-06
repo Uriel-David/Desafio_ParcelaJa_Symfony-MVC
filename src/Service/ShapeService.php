@@ -2,9 +2,8 @@
 
 namespace App\Service;
 
-use App\Entity\Circle;
-use App\Entity\Rectangle;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\CircleRepository;
+use App\Repository\RectangleRepository;
 
 class ShapeService
 {
@@ -12,8 +11,8 @@ class ShapeService
     private $circleRepository;
 
     public function __construct(
-        EntityManagerInterface $rectangleRepository,
-        EntityManagerInterface $circleRepository
+        RectangleRepository $rectangleRepository,
+        CircleRepository $circleRepository
     )
     {
         $this->rectangleRepository = $rectangleRepository;
@@ -23,10 +22,8 @@ class ShapeService
     
     public function findAllShapes(): array
     {
-        /** @var Rectangle[] $rectangles */
-        $rectangles = $this->rectangleRepository->getRepository(Rectangle::class)->findAllRectangles();
-        /** @var Circle[] $circles */
-        $circles    = $this->circleRepository->getRepository(Circle::class)->findAllCircles();
+        $rectangles = $this->rectangleRepository->findAllRectangles();
+        $circles    = $this->circleRepository->findAllCircles();
         
         return [
             'rectangles' => $rectangles,
