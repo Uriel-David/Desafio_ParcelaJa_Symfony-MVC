@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shape List{% endblock %}
+
+{% block body %}
+<h1>Shape List</h1>
+
+<h2>Rectangles</h2>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Name</th>
+        <th>Width</th>
+        <th>Length</th>
+        <th>Area</th>
+    </tr>
+    {% for rectangle in rectangles %}
+        <tr>
+            <td>{{ rectangle.name }}</td>
+            <td>{{ rectangle.width }}</td>
+            <td>{{ rectangle.length }}</td>
+            <td>{{ rectangle.area }}</td>
+        </tr>
+    {% else %}
+        <tr><td colspan="4">No rectangles found</td></tr>
+    {% endfor %}
+</table>
+
+<h2>Circles</h2>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Name</th>
+        <th>Radius</th>
+        <th>Area</th>
+    </tr>
+    {% for circle in circles %}
+        <tr>
+            <td>{{ circle.name }}</td>
+            <td>{{ circle.radius }}</td>
+            <td>{{ circle.area }}</td>
+        </tr>
+    {% else %}
+        <tr><td colspan="3">No circles found</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
