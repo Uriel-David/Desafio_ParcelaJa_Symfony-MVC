@@ -4,6 +4,8 @@ namespace App\Service;
 
 use App\Mapper\CircleMapper;
 use App\Mapper\RectangleMapper;
+use \App\DTO\CircleDTO;
+use \App\DTO\RectangleDTO;
 use App\Repository\CircleRepository;
 use App\Repository\RectangleRepository;
 
@@ -27,7 +29,9 @@ class ShapeService
         $rectangles = $this->rectangleRepository->findAllRectangles();
         $circles    = $this->circleRepository->findAllCircles();
 
+        /** @var RectangleDTO[] $circleDTOs */
         $rectangleDTOs = array_map([RectangleMapper::class, 'toDTO'], $rectangles);
+        /** @var CircleDTO[] $circleDTOs */
         $circleDTOs = array_map([CircleMapper::class, 'toDTO'], $circles);
 
         return [
