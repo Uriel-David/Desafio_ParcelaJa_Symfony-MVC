@@ -90,6 +90,12 @@ Opcionalmente, pode popular o banco com dados iniciais (fixtures):
 php bin/console doctrine:fixtures:load
 ```
 
+ou se não quiser fazer purge da database,
+
+```bash
+php bin/console doctrine:fixtures:load --append
+```
+
 ---
 
 ## 🚀 Executando o Servidor Local
